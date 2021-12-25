@@ -8,10 +8,17 @@
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
+        <% if logged_in? %>
+          <p class="nav-link">こんにちは、<%= current_user.name %>さん。</p>
           <li class="nav-item"><a href="#" class="nav-link">講座一覧</a></li>
+          <li class="nav-item"><%= link_to 'お気に入り一覧', login_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+        <% else %>
           <li class="nav-item"><%= link_to 'ユーザー登録', signup_path, class: 'nav-link' %></li>
-          <li class="nav-item"><a href="#" class="nav-link">ログイン</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">講座一覧</a></li>
+          <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
           <li class="nav-item"><a href="#" class="nav-link">管理者ログイン</a></li>
+        <% end %>
         </ul>
       </div>
     </div>

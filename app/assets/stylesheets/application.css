@@ -36,6 +36,12 @@
   background: linear-gradient(transparent 60%, #ff6 60%);
 }
 
+.container-fluid h2 {
+  font-weight: bold;
+  display: inline-block;
+  background: linear-gradient(transparent 60%, #6ff 60%);
+}
+
 .form-group {
   display: inline-block;
 }
