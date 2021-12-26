@@ -1,0 +1,25 @@
+<div class="bg-primary ps-5 p-2">
+  <h4>管理者ログイン</h4>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(url: adlogin_path, scope: :session) do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'ログイン', class: 'btn btn-primary w-100' %>
+    <% end %>
+
+  </div>
+</div>
+
