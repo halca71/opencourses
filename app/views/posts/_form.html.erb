@@ -1,0 +1,50 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <b><%= form.label :講座名 %></b>
+    <%= form.text_field :course_name %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :講師名 %></b>
+    <%= form.text_field :teacher_name %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :日時 %></b>
+    <%= form.datetime_field :date %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :受付状況 %></b>
+    <%= form.radio_button :status, :acception %>
+    <%= form.label :status, "受付中", {value: :acception, style: "display: inline-block;"} %>
+    <%= form.radio_button :status, :finished %>
+    <%= form.label :status, "終了", {value: :finished, style: "display: inline-block;"} %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :講座内容 %></b>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :講座画像 %></b>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

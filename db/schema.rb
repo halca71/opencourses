@@ -10,12 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_25_161245) do
+ActiveRecord::Schema.define(version: 2022_01_04_151000) do
 
   create_table "admins", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "courses", charset: "utf8mb4", force: :cascade do |t|
+    t.string "course_name"
+    t.string "teacher_name"
+    t.datetime "date"
+    t.string "status"
+    t.text "content"
+    t.string "photo"
+    t.bigint "admin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "category_name"
+    t.integer "category_id"
+    t.index ["admin_id"], name: "index_courses_on_admin_id"
+  end
+
+  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+    t.text "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,4 +55,5 @@ ActiveRecord::Schema.define(version: 2021_12_25_161245) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "courses", "admins"
 end

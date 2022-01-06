@@ -1,11 +1,8 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container text-center p-5">
-    <h1>公開講座</h1>
-    <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
-  </div>
+<div class="bg-success ps-5 p-2">
+  <h4>講座一覧</h4>
 </div>
+
 <div class="container-fluid text-center p-5">
-  <h2>Pick Up</h2>
   <div class="row">
     <% @courses.each do |course| %>
       <div class="col-sm-4" id=<%= course_path(course.id) %>>
@@ -27,4 +24,8 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="container text-center">
+  <%== pagy_bootstrap_nav(@pagy) %>
 </div>

@@ -1,0 +1,55 @@
+<%= form_with(model: @course) do |form| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @course.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <b><%= form.label :講座名 %></b>
+    <%= form.text_field :course_name %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :講師名 %></b>
+    <%= form.text_field :teacher_name %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :日時 %></b>
+    <%= form.datetime_field :date %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :カテゴリー %></b>
+    <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: '選択してください' } %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :受付状況 %></b>
+    <%= form.radio_button :status, :"受付中" %>
+    <%= form.label :status, "受付中", {value: :"受付中", style: "display: inline-block;"} %>
+    <%= form.radio_button :status, :"終了" %>
+    <%= form.label :status, "終了", {value: :"終了", style: "display: inline-block;"} %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :講座内容 %></b>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="mb-3">
+    <b><%= form.label :講座画像 %></b>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

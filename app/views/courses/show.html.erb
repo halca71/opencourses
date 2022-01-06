@@ -1,0 +1,32 @@
+<div class="bg-primary ps-5 p-2">
+  <h1>公開講座：<%= @course.course_name %></h1>
+</div>
+
+<%= image_tag @course.photo.url, size: '500x500' if @course.photo.present? %>
+<table class="table table-bordered">
+  <tr>
+    <th>日時</th>
+    <td><%= @course.date %></td>
+  </tr>
+  <tr>
+    <th>講師</th>
+    <td><%= @course.teacher_name %></td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th>
+    <td><%= @category.name %></td>
+  </tr>
+  <tr>
+    <th>受付状況</th>
+    <td><%= @course.status %></td>
+  </tr>
+  <tr>
+    <th>講座詳細</th>
+    <td><%= @course.content %></td>
+  </tr>
+</table>
+
+<% if current_admin == @course.admin %>
+  <%= link_to '編集する', edit_course_path(@course), class: 'btn btn-light' %>
+  <%= link_to '削除する', @course, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'opencourses#index'
   
@@ -12,4 +13,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
   resources :users, only: [:show, :create]
+  
+  resources :courses
+  resources :categories, except: [:new, :show]
 end
