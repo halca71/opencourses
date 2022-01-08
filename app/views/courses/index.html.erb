@@ -9,7 +9,9 @@
         <div class="card">
           <div class="card-block">
            <div>
-              <%= image_tag course.photo.url, size: '300x300' if course.photo.present? %>
+              <div class="card-block-image">
+                <%= image_tag course.photo.url if course.photo.present? %>
+              </div>
               <h4><%= link_to course.course_name, course %></h4>
               <h5><%= course.date.to_s(:datetime_jp) %></h5>
               <b>講師：<%= course.teacher_name %></b>
