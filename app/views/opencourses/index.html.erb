@@ -12,14 +12,18 @@
         <div class="card">
           <div class="card-block">
            <div>
-              <%= image_tag course.photo.url, size: '300x300' if course.photo.present? %>
+              <div class="card-block-image">
+                <%= image_tag course.photo.url if course.photo.present? %>
+              </div>
               <h4><%= link_to course.course_name, course %></h4>
-              <h5><%= course.date %></h5>
+              <h5><%= course.date.to_s(:datetime_jp) %></h5>
               <b>講師：<%= course.teacher_name %></b>
               <p><%= course.status %></p>
-              <%= link_to "お気に入り登録", course_path(course.id), class: 'btn btn-primary btn-sm' %>
+              <% if logged_in? %>
+                <%= render 'favorites/favorite_button', course: course %>
+              <% end %>
               <% if current_admin == course.admin %>
-                <%= link_to "削除", course, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                <%= link_to "削除する", course, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-outline-danger btn-sm' %>
               <% end %>
             </div>
           </div>

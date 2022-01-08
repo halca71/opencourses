@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   delete 'adlogout', to: 'adlogin#destroy'
 
   get 'signup', to: 'users#new'
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create]do
+    member do
+      get :likes
+    end
+  end
   
   resources :courses
-  resources :categories, except: [:new, :show]
+  resources :favorites, only: [:create, :destroy]
 end

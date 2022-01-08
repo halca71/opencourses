@@ -2,11 +2,15 @@
   <h1>公開講座：<%= @course.course_name %></h1>
 </div>
 
-<%= image_tag @course.photo.url, size: '500x500' if @course.photo.present? %>
+<div class="box_img">
+  <%= image_tag @course.photo.url, size: '300x300' if @course.photo.present? %>
+</div>
+
+<div class="box_table">
 <table class="table table-bordered">
   <tr>
     <th>日時</th>
-    <td><%= @course.date %></td>
+    <td><%= @course.date.to_s(:datetime_jp) %></td>
   </tr>
   <tr>
     <th>講師</th>
@@ -26,7 +30,13 @@
   </tr>
 </table>
 
-<% if current_admin == @course.admin %>
-  <%= link_to '編集する', edit_course_path(@course), class: 'btn btn-light' %>
-  <%= link_to '削除する', @course, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<% if logged_in? %>
+  <%= render 'favorites/favorite_button', course: @course %>
 <% end %>
+
+<% if current_admin == @course.admin %>
+  <%= link_to '編集する', edit_course_path(@course), class: 'btn btn-outline-dark' %>
+  <%= link_to '削除する', @course, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-outline-danger' %>
+<% end %>
+
+</div>

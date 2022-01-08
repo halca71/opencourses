@@ -17,6 +17,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def likes
+    @user = User.find(params[:id])
+    @pagy, @likes = pagy(@user.likes.order(id: :desc))
+  end
 
   private
   

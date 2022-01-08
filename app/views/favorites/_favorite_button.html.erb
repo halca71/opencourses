@@ -1,0 +1,11 @@
+<% if current_user.likes?(course) %>
+  <%= form_with(model: current_user.favorites.find_by(course_id: course.id), method: :delete) do |f| %>
+    <%= hidden_field_tag :course_id, course.id %>
+    <%= f.submit 'お気に入り解除', class: 'btn btn-outline-danger btn-sm' %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.favorites.build) do |f| %>
+    <%= hidden_field_tag :course_id, course.id %>
+    <%= f.submit 'お気に入り登録', class: 'btn btn-outline-primary btn-sm' %>
+  <% end %>
+<% end %>

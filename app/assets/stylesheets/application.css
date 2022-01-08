@@ -52,3 +52,30 @@ footer {
   text-align: center;
   margin-top: 20px;
 }
+
+.card-block-image img {
+  width: 80%;
+}
+
+.pagy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color:#666;
+  text-decoration:underline;
+}
+
+.box_table {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.box_img {
+  display: inline-block;
+  padding: 10px;
+}
