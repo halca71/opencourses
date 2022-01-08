@@ -3,7 +3,7 @@
 </div>
 
 <div class="box_img">
-  <%= image_tag @course.photo.url, :alt => 'course.photo', size: '300x300' if @course.photo.present? %>
+  <%= image_tag course.photo.url, size: '300x300' if course.photo.present? %>
 </div>
 
 <div class="box_table">
