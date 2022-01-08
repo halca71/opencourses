@@ -21,7 +21,6 @@ class CoursesController < ApplicationController
       flash[:success] = '講座を追加しました。'
       redirect_to root_url
     else
-      @pagy, @courses = pagy(@courses.order(id: :desc))
       flash.now[:danger] = '講座の追加に失敗しました。'
       render new_course_path
     end
