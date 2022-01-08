@@ -7,7 +7,6 @@ class Course < ApplicationRecord
   validates :date, presence: true
   validates :status, presence: true, length: {maximum: 50 }
   validates :content, presence: true, length: {maximum: 255 }
-  validates :photo, presence: true
 
   has_many :categories
   
