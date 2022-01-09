@@ -11,7 +11,7 @@
 <table class="table table-bordered">
   <tr>
     <th>日時</th>
-    <td><%= @course.date.to_s(:datetime_jp) %></td>
+    <td><%= @course.date.strftime("%Y年%m月%d日 %H:%M") %></td>
   </tr>
   <tr>
     <th>講師</th>
