@@ -12,6 +12,6 @@ class Course < ApplicationRecord
   
   mount_uploader :photo, PhotoUploader
   
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :likes, through: :favorites, source: :user
 end

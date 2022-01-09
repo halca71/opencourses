@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :adlogged_in, only: [:edit, :update]
 
   def index
     @courses = Course.all
@@ -27,11 +28,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    set_course
   end
   
   def update
-    set_course
     if @course.update(course_params)
       flash[:success] = '正常に更新されました'
       redirect_to @course
@@ -54,10 +53,6 @@ class CoursesController < ApplicationController
     @category = Category.find(@course.category_id)
   end
 
-  def current_admin
-    @admin = Admin.first
-  end
-    
   def set_course
     @course = Course.find(params[:id])
   end
@@ -65,4 +60,11 @@ class CoursesController < ApplicationController
   def course_params
     params.require(:course).permit(:course_name, :teacher_name, :date, :status, :photo, :content, :category_id, :category_name)
   end
+  
+  def adlogged_in
+    unless adlogged_in?
+      redirect_to root_url
+    end
+  end
+
 end
