@@ -16,7 +16,7 @@
                 <%= image_tag course.photo.url if course.photo.present? %>
               </div>
               <h4><%= link_to course.course_name, course %></h4>
-              <h5><%= course.date.to_s(:datetime_jp) %></h5>
+              <h5><%= course.date.strftime("%m月%d日%Y年 %H:%M") %></h5>
               <b>講師：<%= course.teacher_name %></b>
               <p><%= course.status %></p>
               <% if logged_in? %>
