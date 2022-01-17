@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :adlogged_in, only: [:edit, :update]
+  before_action :adlogged_in, only: [:new, :edit, :update]
 
   def index
     @courses = Course.all
