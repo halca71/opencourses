@@ -49,4 +49,8 @@ gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'cloudinary'
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
+
+# rails-i18n
+gem 'rails-i18n'
+
 end

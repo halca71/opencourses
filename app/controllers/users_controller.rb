@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in, only: [:likes]
+  before_action :require_user_logged_in, only: [:likes]
 
   def new
     @user = User.new
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     @pagy, @likes = pagy(@user.likes.order(id: :desc))
-    
   end
 
   private
@@ -32,10 +31,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
   
-  def logged_in
-    unless logged_in?
-      redirect_to root_url
-    end
-  end
-
 end

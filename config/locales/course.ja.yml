@@ -1,0 +1,25 @@
+# モデルは全て activerecord 以下に記述する。
+# これにより、User.model_name.human / User.human_attribute_name({attr_name})で使用可能。
+
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      user: ユーザー 
+      board: 掲示板
+    # model毎に定義したいattributesを記述
+    attributes:
+        course:
+          id: ID
+          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+          course_name: "講座名"
+          teacher_name: "講師名"
+          date: "開催日時"
+          status: "受付状況"
+          content: "講座内容"
+          categories: "カテゴリー"
+          photo: "講座画像"
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
