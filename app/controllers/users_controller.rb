@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:likes]
+  before_action :correct_favorite, only: [:likes]
 
   def new
     @user = User.new
