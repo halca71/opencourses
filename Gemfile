@@ -52,5 +52,6 @@ group :production do
 
 # rails-i18n
 gem 'rails-i18n'
+gem 'font-awesome-rails'
 
 end

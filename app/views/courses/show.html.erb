@@ -2,42 +2,49 @@
   <h4>講座詳細</h4>
 </div>
 
-<div class="box_img">
-  <%= image_tag @course.photo.url, size: '300x300', :alt => 'Photo' if @course.photo.present? %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="box_img">
+        <%= image_tag @course.photo.url, size: '300x300', :alt => 'Photo' if @course.photo.present? %>
+      </div>
+    </div>
+  <div class="col-md-7">
+    <div class="box_table">
+    <h4><i class="bi bi-pencil"></i>「<%= @course.course_name %>」</h4>
+    <table class="table table-bordered">
+      <tr>
+        <th>日時</th>
+        <td><%= @course.date.strftime("%Y年%m月%d日 %H:%M") %></td>
+      </tr>
+      <tr>
+        <th>講師</th>
+        <td><%= @course.teacher_name %></td>
+      </tr>
+      <tr>
+        <th>カテゴリー</th>
+        <td><%= @category.name %></td>
+      </tr>
+      <tr>
+        <th>受付状況</th>
+        <td><%= @course.status %></td>
+      </tr>
+      <tr>
+        <th>講座詳細</th>
+        <td><%= @course.content %></td>
+      </tr>
+    </table>
+    
+    <% if logged_in? %>
+      <%= render 'favorites/favorite_button', course: @course %>
+    <% end %>
+    
+    <% if current_admin == @course.admin %>
+      <%= link_to '編集する', edit_course_path(@course), class: 'btn btn-outline-dark' %>
+      <%= link_to '削除する', @course, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-outline-danger' %>
+    <% end %>
+    </div>
+  </div>
 </div>
-
-<div class="box_table">
-<h4>「<%= @course.course_name %>」</h4>
-<table class="table table-bordered">
-  <tr>
-    <th>日時</th>
-    <td><%= @course.date.strftime("%Y年%m月%d日 %H:%M") %></td>
-  </tr>
-  <tr>
-    <th>講師</th>
-    <td><%= @course.teacher_name %></td>
-  </tr>
-  <tr>
-    <th>カテゴリー</th>
-    <td><%= @category.name %></td>
-  </tr>
-  <tr>
-    <th>受付状況</th>
-    <td><%= @course.status %></td>
-  </tr>
-  <tr>
-    <th>講座詳細</th>
-    <td><%= @course.content %></td>
-  </tr>
-</table>
-
-<% if logged_in? %>
-  <%= render 'favorites/favorite_button', course: @course %>
-<% end %>
-
-<% if current_admin == @course.admin %>
-  <%= link_to '編集する', edit_course_path(@course), class: 'btn btn-outline-dark' %>
-  <%= link_to '削除する', @course, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-outline-danger' %>
-<% end %>
 
 </div>

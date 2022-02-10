@@ -1,11 +1,11 @@
 <div class="jumbotron jumbotron-fluid">
-  <div class="container text-center p-5">
+  <div class="jumbotron-container text-center p-5">
     <h1>公開講座</h1>
     <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
   </div>
 </div>
 <div class="container-fluid text-center p-5">
-  <h2>Pick Up</h2>
+  <h2><i class="bi bi-check-square"></i>Pick Up</h2>
   <div class="row">
     <% @courses.each do |course| %>
       <div class="col-sm-4" id=<%= course_path(course.id) %>>
@@ -16,7 +16,7 @@
                 <%= image_tag course.photo.url, :alt => 'Photo' if course.photo.present? %>
               </div>
               <h4><%= link_to course.course_name, course %></h4>
-              <h5><%= course.date.strftime("%Y年%m月%d日 %H:%M") %></h5>
+              <h5><i class="bi bi-calendar-event"></i> <%= course.date.strftime("%Y年%m月%d日 %H:%M") %></h5>
               <b>講師：<%= course.teacher_name %></b>
               <p><%= course.status %></p>
               <% if logged_in? %>

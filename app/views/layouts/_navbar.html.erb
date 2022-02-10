@@ -10,18 +10,18 @@
         <ul class="navbar-nav">
         <% if logged_in? %>
           <p class="nav-link">こんにちは、<%= current_user.name %>さん。</p>
-          <li class="nav-item"><%= link_to '講座一覧', courses_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'お気に入り一覧', likes_user_path(current_user), class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-book-half"></i> <%= link_to '講座一覧', courses_path, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-bookmarks-fill"></i> <%= link_to 'お気に入り一覧', likes_user_path(current_user), class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-box-arrow-in-left"></i> <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
         <% elsif adlogged_in? %>
           <p class="nav-link">こんにちは、<%= current_admin.name %>さん。</p>
-          <li class="nav-item"><%= link_to '講座一覧', courses_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to '講座登録', new_course_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログアウト', adlogout_path, method: :delete, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-book-half"></i> <%= link_to '講座一覧', courses_path, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-vector-pen"></i> <%= link_to '講座登録', new_course_path, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-box-arrow-in-left"></i> <%= link_to 'ログアウト', adlogout_path, method: :delete, class: 'nav-link' %></li>
         <% else %>
-          <li class="nav-item"><%= link_to '講座一覧', courses_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ユーザー登録', signup_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-book-half"></i> <%= link_to '講座一覧', courses_path, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-person-circle"></i> <%= link_to 'ユーザー登録', signup_path, class: 'nav-link' %></li>
+          <li class="nav-item"><i class="bi bi-box-arrow-in-right"></i> <%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
         <% end %>
         </ul>
       </div>
