@@ -56,6 +56,13 @@ header {
 .card {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   box-shadow: 4px 4px #f5f5f5;
+  padding: 10px;
+  transition: transform .1s;
+}
+
+.card:hover {
+  /* 1.05倍に拡大する */
+  transform: scale(1.05);
 }
 
 .alert {
@@ -114,11 +121,12 @@ a {
   font-family: 'Zen Maru Gothic', sans-serif;
 }
 
-.box_img {
+.box_img img {
   display: block;
-  margin: 20px;
-  width: 100%;
+  margin: 10px;
+  max-width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .nav-item {
@@ -135,4 +143,8 @@ a {
   .nav-item i {
     margin-right: 15px;
   }
+  
+ .card {
+    margin: 10px;
+  } 
 }
