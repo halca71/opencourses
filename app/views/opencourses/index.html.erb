@@ -1,34 +1,74 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="jumbotron-container text-center p-5">
-    <h1>公開講座</h1>
-    <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
+<!-- スライダーのメインコンテナの div 要素（必須） -->
+<div class="swiper">
+  <!-- スライドを囲む div 要素（必須） -->
+  <div class="swiper-wrapper">
+    <!-- それぞれのスライドの div 要素（必須） -->
+    <div class="swiper-slide bg-slide-image1">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron-container text-center p-5">
+          <h1>公開講座</h1>
+          <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide bg-slide-image2">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron-container text-center p-5">
+          <h1>公開講座</h1>
+          <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide bg-slide-image3">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron-container text-center p-5">
+          <h1>公開講座</h1>
+          <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide bg-slide-image4">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron-container text-center p-5">
+          <h1>公開講座</h1>
+          <p>〇〇大学講師陣による楽しくわかりやすい講座を受けてみませんか？</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+  <!-- ナビゲーションボタンの div 要素（省略可能） -->
+  <div class="swiper-button-prev silver"></div>
+  <div class="swiper-button-next silver"></div>
+</div>
+
 <div class="container-fluid text-center p-5">
-  <h2><i class="bi bi-check-square"></i>Pick Up</h2>
-  <div class="row">
-    <% @courses.each do |course| %>
-      <div class="col-sm-4" id=<%= course_path(course.id) %>>
-        <div class="card">
-          <div class="card-block">
-           <div>
-              <div class="card-block-image">
-                <%= image_tag course.photo.url, :alt => 'Photo' if course.photo.present? %>
+  <div class="animated box">
+    <h2 class="animated infinite pulse"><i class="bi bi-check-square"></i>Pick Up</h2>
+    <div class="row">
+      <% @courses.each do |course| %>
+        <div class="col-sm-4" id=<%= course_path(course.id) %>>
+          <div class="card">
+            <div class="card-block">
+             <div>
+                <div class="card-block-image">
+                  <%= image_tag course.photo.url, :alt => 'Photo' if course.photo.present? %>
+                </div>
+                <h4><%= link_to course.course_name, course %></h4>
+                <h5><i class="bi bi-calendar-event"></i> <%= course.date.strftime("%Y年%m月%d日 %H:%M") %></h5>
+                <b>講師：<%= course.teacher_name %></b>
+                <p><%= course.status %></p>
+                <% if logged_in? %>
+                  <%= render 'favorites/favorite_button', course: course %>
+                <% end %>
+                <% if current_admin == course.admin %>
+                  <%= link_to "削除する", course, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-outline-danger btn-sm' %>
+                <% end %>
               </div>
-              <h4><%= link_to course.course_name, course %></h4>
-              <h5><i class="bi bi-calendar-event"></i> <%= course.date.strftime("%Y年%m月%d日 %H:%M") %></h5>
-              <b>講師：<%= course.teacher_name %></b>
-              <p><%= course.status %></p>
-              <% if logged_in? %>
-                <%= render 'favorites/favorite_button', course: course %>
-              <% end %>
-              <% if current_admin == course.admin %>
-                <%= link_to "削除する", course, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-outline-danger btn-sm' %>
-              <% end %>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

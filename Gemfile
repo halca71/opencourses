@@ -49,9 +49,9 @@ gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'cloudinary'
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
+end
 
 # rails-i18n
 gem 'rails-i18n'
-gem 'font-awesome-rails'
+gem 'jquery-rails'
 
-end

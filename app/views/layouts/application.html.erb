@@ -7,10 +7,11 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="opencourses/app/assets/stylesheets/application.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'waypoints', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -25,5 +26,28 @@
 
       <%= yield %>
     <%= render 'layouts/footer' %>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    
+    <!--<script src="assets/javascript/jquery.waypoints.min.js"></script>-->
+    <!--<script src="app/javascript/jquery.waypoints.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>-->
+    <!--<script src="app/javascript/main.js"></script>-->
+    <!--<script src="assets/javascript/main.js"></script>-->
+
+<script>
+let mySwiper = new Swiper ('.swiper', {
+  // 以下にオプションを設定
+  loop: true, //最後に達したら先頭に戻る
+ 
+  //ナビゲーションボタン（矢印）表示の設定
+  navigation: { 
+    nextEl: '.swiper-button-next', //「次へボタン」要素の指定
+    prevEl: '.swiper-button-prev', //「前へボタン」要素の指定
+  },
+});
+</script>
+
   </body>
 </html>

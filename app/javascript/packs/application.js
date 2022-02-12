@@ -9,3 +9,6 @@ import "channels"
 
 Rails.start()
 Turbolinks.start()
+
+require("jquery")
+require('main.js')

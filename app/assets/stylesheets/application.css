@@ -14,12 +14,62 @@
  *= require_self
  */
 
+
+/* 共通部分 */
+html {
+ overflow-y: scroll;
+}
+
 p {
   margin: 0;
 }
 
+header {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.row {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.alert {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+h4 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.form-group {
+  display: inline-block;
+}
+
+.pagy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color:#666;
+  text-decoration:underline;
+}
+
+.container {
+  width: 90%;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+footer {
+  background-color: #000;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+/* トップページ */
 .jumbotron {
-  background-image: url("top_bg.jpg");
   background-size: cover;
   background-position: center 50%;
   height: 400px;
@@ -45,14 +95,6 @@ p {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-header {
-  font-family: 'Zen Maru Gothic', sans-serif;
-}
-
-.row {
-  font-family: 'Zen Maru Gothic', sans-serif;
-}
-
 .card {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   box-shadow: 4px 4px #f5f5f5;
@@ -65,10 +107,6 @@ header {
   transform: scale(1.05);
 }
 
-.alert {
-  font-family: 'Zen Maru Gothic', sans-serif;
-}
-
 .container-fluid h2 {
   font-weight: bold;
   display: inline-block;
@@ -76,42 +114,49 @@ header {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-h4 {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-}
-
-.form-group {
-  display: inline-block;
-}
-
-footer {
-  background-color: #000;
-  color: #333;
-  text-align: center;
-  margin-top: 20px;
-  font-family: 'Zen Maru Gothic', sans-serif;
-}
-
 .card-block-image img {
   width: 80%;
 }
 
-.pagy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Swiperの設定*/
+.swiper-wrapper {
+  max-width: 100%;
+  height: 400px;
 }
 
-a {
-  color:#666;
-  text-decoration:underline;
+.swiper-slide img {
+  max-width: 100%;
 }
 
-.container {
-  width: 90%;
-  font-family: 'Zen Maru Gothic', sans-serif;
+.bg-slide-image1 {
+  background-image: url("top_bg.jpg");
+  background-size: cover;
+  background-position: center 50%;
 }
 
+.bg-slide-image2 {
+  background-image: url("top_bg2.jpg");
+  background-size: cover;
+  background-position: center 50%;
+}
+
+.bg-slide-image3 {
+  background-image: url("top_bg3.jpg");
+  background-size: cover;
+  background-position: center 50%;
+}
+
+.bg-slide-image4 {
+  background-image: url("top_bg4.jpg");
+  background-size: cover;
+  background-position: center 50%;
+}
+
+.swiper-button-prev.silver, .swiper-button-next.silver {
+  color: silver;
+}
+
+/* 講座詳細ページ */
 .box_table {
   display: inline-block;
   width: 100%;
@@ -129,12 +174,15 @@ a {
   object-fit: cover;
 }
 
+/* ナビゲーションバー */
 .nav-item {
   display: flex;
   align-items: center;
   margin-left: 10px;
 }
 
+
+/* レスポンシブ設定 */
 @media screen and (max-width: 575px) {
   .nav-item {
     margin-left: 0;
