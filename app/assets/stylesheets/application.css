@@ -152,6 +152,10 @@ footer {
   background-position: center 50%;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  top: 250px;
+}
+
 .swiper-button-prev.silver, .swiper-button-next.silver {
   color: silver;
 }
