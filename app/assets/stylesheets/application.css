@@ -52,7 +52,7 @@ h4 {
 
 a {
   color:#666;
-  text-decoration:underline;
+  text-decoration: none;
 }
 
 .container {
@@ -117,6 +117,12 @@ footer {
 .card-block-image img {
   width: 80%;
 }
+
+.card-block h4 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  text-decoration: underline;
+}
+
 
 /* Swiperの設定*/
 .swiper-wrapper {
